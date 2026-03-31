@@ -1,0 +1,230 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.projects-table-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.table-controls {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.aurora-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aurora-table th,
+.aurora-table td {
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+}
+
+.aurora-table th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.aurora-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.project-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    min-width: 0;
+}
+
+.project-name-cell > *:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.p-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(0, 228, 255, 0.1);
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-active {
+    background: rgba(0, 255, 163, 0.15);
+    color: var(--accent-green);
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    opacity: 0.5;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(9, 13, 20, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--glass-border);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body .textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+@media (max-width: 900px) {
+    .projects-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-container {
+        gap: 24px;
+    }
+
+    .table-controls {
+        padding: 16px;
+    }
+
+    .aurora-table th,
+    .aurora-table td {
+        padding: 14px 16px;
+    }
+
+    .modal-content {
+        max-width: calc(100vw - 24px);
+    }
+}

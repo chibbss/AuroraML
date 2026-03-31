@@ -1,0 +1,190 @@
+.training-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.training-header {
+    margin-bottom: 24px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.status-beacon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.status-beacon.running {
+    background-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    animation: pulseBeacon 1.5s infinite;
+}
+
+.status-beacon.completed {
+    background-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.status-beacon.failed {
+    background-color: #f97316;
+    color: #f97316;
+}
+
+@keyframes pulseBeacon {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.progress-bar-container {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-out;
+}
+
+.progress-fill.active {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    background-size: 200% 200%;
+    animation: gradientMove 2s ease infinite;
+}
+
+.progress-fill.completed {
+    background: var(--accent-green);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Leaderboard Enhancements */
+.animated-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.row-appear {
+    animation: slideInLeft 0.4s ease forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.top-rank {
+    background: rgba(255, 171, 0, 0.05);
+    border-left: 3px solid #ffab00;
+}
+
+.top-rank td {
+    font-weight: 600;
+}
+
+.score-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.score-badge.gold {
+    background: rgba(255, 171, 0, 0.15);
+    color: #ffab00;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tailwind Utilities needed that weren't in index.css */
+.border-cyan\/30 {
+    border-color: rgba(0, 228, 255, 0.3);
+}
+
+.rounded-xl {
+    border-radius: 16px;
+}
+
+.text-2xl {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.max-w-full {
+    max-width: 100%;
+}
+
+.w-64 {
+    width: 16rem;
+}
+
+@media (max-width: 700px) {
+    .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .progress-info {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+}

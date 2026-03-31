@@ -1,0 +1,25 @@
+# AuroraML Pipeline Configuration
+
+target_column: y
+
+data_cleaning:
+  missing_threshold: 0.5        # Drop columns with >50% missing values
+  variance_threshold: 0.01      # Drop near-constant columns
+
+feature_engineering:
+  interaction_features: true     # Generate product features for top pairs
+  polynomial_features: false     # Polynomial feature expansion
+  advanced_transformations: true # Log transforms for skewed features
+  binning: false                 # Discretization of continuous features
+  custom_features:
+    engagement_score: "clicks / (impressions + 1e-5)"
+
+auto_ml:
+  max_trials: 50                 # Optuna hyperparameter search trials
+  cv_folds: 3                    # Cross-validation folds
+  models:                        # Models to evaluate
+    - random_forest
+    - xgboost
+    - lightgbm
+    - gradient_boosting
+    - logistic_regression

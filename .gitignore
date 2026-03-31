@@ -1,0 +1,55 @@
+# AuroraML .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+auroraML/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Storage
+storage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+# ML artifacts
+*.joblib
+*.pkl
+*.h5
+*.pb
+mlruns/
+
+# Node (frontend)
+node_modules/
+.next/
+build/
+
+# Misc
+*.bak
+*.tmp
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,72 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+.input-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+}
+
+.glass-input {
+    width: 100%;
+    background: rgba(18, 26, 40, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text-primary);
+    font-family: var(--font-base);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    min-height: 46px;
+}
+
+.glass-input.has-icon {
+    padding-left: 40px;
+}
+
+.glass-input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    background: rgba(18, 26, 40, 0.6);
+    box-shadow: 0 0 0 2px rgba(0, 228, 255, 0.2);
+}
+
+.glass-input::placeholder {
+    color: var(--text-muted);
+}
+
+.glass-input.has-error {
+    border-color: #ef4444;
+}
+
+.glass-input.has-error:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.input-error {
+    font-size: 0.8rem;
+    color: #ef4444;
+    margin-top: 6px;
+}
